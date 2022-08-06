@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org>"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body >
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <th th:text="${principal.getUsername()}"></th> with roles: <td th:text="${principal.getRolesList()}"></td>
+        </a>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout
+                </a>
+            </li>
+        </ul>
+        </a>
+
+
+    </div>
+</nav>
+
+<div class="container-fluid ">
+    <div class="row ">
+        <div class="col-2 p-0 gy-3 bg-white min-vh-100">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/user}">User</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="bg-light col-10">
+            <p>
+            <h1>User information-page</h1>
+            <p>
+            <div class="tab-content">
+                <div class="tab-pane table-striped container-fluid active">
+                    <div class="row">
+                        <div class="col border">
+                            <p>
+                            <h3>About user</h3>
+                            </p>
+                            <div class="w-100"></div>
+                            <div class="col border bg-white">
+                                <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td th:text="${principal.getId}"></td>
+                            <td th:text="${principal.getName}"></td>
+                            <td th:text="${principal.getLastname}"></td>
+                            <td th:text="${principal.getAge}"></td>
+                            <td th:text="${principal.getUsername}"></td>
+                            <td th:text="${principal.getRolesList}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
